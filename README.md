@@ -1,26 +1,25 @@
-# Exp:6 PSK
 
-### Aim:
+# PSK
+# AIM:
 Write a Python program for the modulation and demodulation of PSK.
-### Tools required:
-Python IDE with Numpy and Scipy
-### Program:
-
-```python
+# TOOL REQUIRED:
+IDE python with scipy and numpy
+# PROGRAM:
+```
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.signal import butter, lfilter
 # Butterworth low-pass filter for demodulation
 def butter_lowpass_filter(data, cutoff, fs, order=5):
-  nyquist = 0.5 * fs
-  normal_cutoff = cutoff / nyquist
-  b, a = butter(order, normal_cutoff, btype='low', analog=False)
-  return lfilter(b, a, data)
+    nyquist = 0.5 * fs
+    normal_cutoff = cutoff / nyquist
+    b, a = butter(order, normal_cutoff, btype='low', analog=False)
+    return lfilter(b, a, data)
 # Parameters
-fs = 1000 
-f_carrier = 50
-bit_rate = 10 
-T = 1 
+fs = 1000                # Sampling frequency
+f_carrier = 50           # Carrier frequency
+bit_rate = 10            # Data rate
+T = 1                    # Total time duration
 t = np.linspace(0, T, int(fs * T), endpoint=False)
 # Message signal (binary data)
 bits = np.random.randint(0, 2, bit_rate)
@@ -55,10 +54,10 @@ plt.legend()
 plt.tight_layout()
 plt.show()
 ```
-### Output Waveform:
-![WhatsApp Image 2025-05-01 at 09 58 49_0f0856b9](https://github.com/user-attachments/assets/80be67ac-4074-48ce-91f9-1bc761fe0237)
+# OUTPUT WAVEFORM:
+![image](https://github.com/user-attachments/assets/286ec62a-3ac0-4fa2-a558-1df99d5969c3)
 
-### Results:
-The experiment on Phase Shift Keying (PSK) modulation and demodulation was successfully carried out using Python. The binary input data was accurately recovered after demodulation, confirming the correct implementation of PSK. The phase variations corresponding to different binary values were clearly observed in the modulated waveform, and the demodulated output matched the original binary sequence.
-### Hardware experiment output waveform:
-![PSK](https://github.com/user-attachments/assets/366ad3ff-07fe-4f4b-8891-8857f28b0498)
+# Results
+Thus PSK modulation and demodulation of binary data were successfully implemented and verified using waveform plots.
+# HARDWARE EXPERIMENT OUTPUT WAVEFORM:
+![Uploading WhatsApp Image 2025-05-12 at 20.39.46_0769c605.jpg…]()
